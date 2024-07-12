@@ -30,7 +30,7 @@ function EmployeeDetails() {
       <div className="employee-details">
         <div className="employee-header">
           <div className="employee-avatar">{employee.name.charAt(0)}</div>
-          <h2>{employee.fullname}</h2>
+          <h2>{employee.name}</h2>
           <p className="job-role">{employee.jobRole}</p>
         </div>
         <div className="employee-info">
