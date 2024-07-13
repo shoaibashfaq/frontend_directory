@@ -17,7 +17,7 @@ function App() {
           <nav className="sidebar">
             <ul>
               <li>
-                <Link to="/">Employee Directory</Link>
+                <Link to="/">Employee Lookup</Link>
               </li>
               <li>
                 <Link to="/salary-range">Salary Range Finder</Link>

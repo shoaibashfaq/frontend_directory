@@ -46,6 +46,52 @@ body {
   margin-top: 2rem;
 }
 
+/* Add these new styles for the list format */
+.employee-list-items {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.employee-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.employee-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(231, 76, 60, 0.15);
+  border-color: var(--primary-color);
+}
+
+.employee-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.employee-job-role {
+  font-size: 0.9rem;
+  color: #444; /* Darker color for better contrast */
+  font-weight: bold;
+}
+
+/* Update the .employee-list padding */
+.employee-list {
+  padding: 1rem 2rem;
+}
+
 .employee-card {
   background-color: var(--card-background);
   border: 1px solid var(--card-border);
@@ -359,4 +405,30 @@ main {
 .salary-result h3 {
   margin-top: 0;
   color: var(--primary-color);
+}
+
+.search-bar {
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+.search-bar input::placeholder {
+  color: #999;
 }
