@@ -49,7 +49,7 @@ function EmployeeList() {
   const formatJobRole = (jobRole) => {
     return jobRole
       .split('_')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   };
 
