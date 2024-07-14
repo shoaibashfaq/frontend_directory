@@ -34,8 +34,6 @@ function SalaryRangeForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically make an API call to get the salary range
-    // For this example, we'll use a mock response
     setSalaryRange(`$50,000 - $100,000`);
   };
 
