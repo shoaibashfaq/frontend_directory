@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import EmployeeList from './components/EmployeeList.js';
 import EmployeeDetails from './components/EmployeeDetails.js';
 import SalaryRangeForm from './components/SalaryRangeForm.js';
+import AddEmployeeForm from './components/AddEmployeeForm.js';
 import './App.css';
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
               <li>
                 <Link to="/salary-range">Salary Range Finder</Link>
               </li>
+              <li>
+                <Link to="/add-employee">Add Employee</Link>
+              </li>
             </ul>
           </nav>
           <main>
@@ -29,6 +33,7 @@ function App() {
               <Route path="/" element={<EmployeeList />} />
               <Route path="/employee/:id" element={<EmployeeDetails />} />
               <Route path="/salary-range" element={<SalaryRangeForm />} />
+              <Route path="/add-employee" element={<AddEmployeeForm />} />
             </Routes>
           </main>
         </div>
