@@ -79,6 +79,7 @@ function EmployeeList() {
         <button 
           onClick={() => handlePageChange(currentPage - 1)} 
           disabled={currentPage === 1}
+          className="pagination-button"
         >
           Previous
         </button>
@@ -86,6 +87,7 @@ function EmployeeList() {
         <button 
           onClick={() => handlePageChange(currentPage + 1)} 
           disabled={currentPage === totalPages}
+          className="pagination-button"
         >
           Next
         </button>
