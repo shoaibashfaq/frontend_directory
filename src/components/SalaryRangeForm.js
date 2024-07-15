@@ -14,9 +14,9 @@ function SalaryRangeForm() {
 
   const fetchJobRoles = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/jobs');
-      const data = await response.json();
-      setJobRoles(data);
+      // const response = await fetch('http://localhost:3000/api/jobs');
+      // const data = await response.json();
+      setJobRoles(['Engineer', 'Manager', 'Technician', 'Clerk', 'Sales', 'HR', 'Marketing', 'Consultant', 'Analyst', 'Executive']);
     } catch (error) {
       console.error('Error fetching job roles:', error);
     }
@@ -32,9 +32,23 @@ function SalaryRangeForm() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSalaryRange(`$50,000 - $100,000`);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({ jobRole, region: jobLocation })
+      };
+      const response = await fetch('http://127.0.0.1:5000/predict', requestOptions);
+      const data = await response.json();
+      setSalaryRange(data.predicted_salary);
+    } catch (error) {
+      console.error('Error fetching the prediction', error);
+    }
   };
 
   return (
@@ -51,8 +65,8 @@ function SalaryRangeForm() {
           >
             <option value="">Select a job role</option>
             {jobRoles.map((role) => (
-              <option key={role._id} value={role._id}>
-                {role.name}
+              <option value={role}>
+                {role}
               </option>
             ))}
           </select>
@@ -67,7 +81,7 @@ function SalaryRangeForm() {
           >
             <option value="">Select a location</option>
             {locations.map((location) => (
-              <option key={location._id} value={location._id}>
+              <option key={location._id} value={location.name}>
                 {location.name}
               </option>
             ))}
@@ -78,7 +92,7 @@ function SalaryRangeForm() {
       {salaryRange && (
         <div className="salary-result">
           <h3>Estimated Salary Range:</h3>
-          <p>{salaryRange}</p>
+          <p>{`$${Math.round(salaryRange)}`}</p>
         </div>
       )}
     </div>

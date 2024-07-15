@@ -46,7 +46,6 @@ body {
   margin-top: 2rem;
 }
 
-/* Add these new styles for the list format */
 .employee-list-items {
   list-style-type: none;
   padding: 0;
